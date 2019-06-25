@@ -3945,7 +3945,7 @@ CONFIG_imagefeature-hwcodecs=y
 #
 # modules 
 #
-CONFIG_mymodule=y
+CONFIG_adcmodule=y
 
 #
 # user packages 

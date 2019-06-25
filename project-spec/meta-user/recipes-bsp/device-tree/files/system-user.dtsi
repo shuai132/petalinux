@@ -1,3 +1,15 @@
 /include/ "system-conf.dtsi"
 / {
 };
+
+&ad9226_sample_0 {
+	compatible = "alinx,axi-adc-dma";
+	dmas = <&axi_dma_0 0>;
+	dma-names = "axidma1";
+};
+
+&ad9226_sample_1 {
+	compatible = "alinx,axi-adc-dma";
+	dmas = <&axi_dma_1 0>;
+	dma-names = "axidma1";
+};
