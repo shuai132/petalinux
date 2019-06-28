@@ -14,7 +14,7 @@ LIBSOURCES=*.c
 OUTS = *.o
 
 libs:
-	echo "Compiling ad9226_sample..."
+	echo "Compiling ad9280_sample..."
 	$(COMPILER) $(COMPILER_FLAGS) $(EXTRA_COMPILER_FLAGS) $(INCLUDES) $(LIBSOURCES)
 	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} ${OUTS}
 	make clean
