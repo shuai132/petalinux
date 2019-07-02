@@ -1,5 +1,10 @@
 /include/ "system-conf.dtsi"
 / {
+    axidma_chrdev: axidma_chrdev@0 {
+        compatible = "xlnx,axidma-chrdev";
+        dmas = <&axi_dma_0 0>;
+        dma-names = "rx_channel_0";
+    };
 };
 
 &ad9280_sample_0 {
