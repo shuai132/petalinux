@@ -16,9 +16,4 @@ add_executable(${ELF_FILE}
         src/adc_capture.c
         )
 
-add_custom_target(upload
-        COMMAND make
-        && size ${ELF_FILE}
-        && file ${ELF_FILE}
-        && cp ${ELF_FILE} /home/parallels/nfs/zynq_proj/petalinux/project-spec/meta-user/recipes-modules/adcmodule/files
-        )
+add_subdirectory(../project-spec/meta-user/recipes-modules/ modules)

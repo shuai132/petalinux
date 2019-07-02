@@ -14,7 +14,7 @@
 #define AXI_ADC_SET_DMA_LEN_BYTES       _IO(AXI_ADC_IOCTL_BASE, 1)
 #define AXI_ADC_DMA_INIT                _IO(AXI_ADC_IOCTL_BASE, 2)
 #define AXI_ADC_DMA_START               _IO(AXI_ADC_IOCTL_BASE, 3)
-#define AXI_ADC_DMA_DEINIT              _IO(AXI_ADC_IOCTL_BASE, 4)
+#define AXI_ADC_ADC_START               _IO(AXI_ADC_IOCTL_BASE, 4)
 
 struct axi_adc_dev
 {

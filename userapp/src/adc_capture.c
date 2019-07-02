@@ -36,7 +36,9 @@ int adc_capture_init(int *fd, char *adc_dev, int adc_sample_num, int dma_len_byt
 
 int adc_capture_start(int fd, int samples_num, uint8_t *buf, size_t *dma_len_bytes) {
     if (ioctl(fd, AXI_ADC_DMA_START) == 0) {
-        const int bytes = samples_num * 2;
+        ioctl(fd, AXI_ADC_ADC_START);
+
+        const int bytes = samples_num;
         read(fd, buf, bytes);
         *dma_len_bytes = bytes;
     }
@@ -46,13 +48,3 @@ int adc_capture_start(int fd, int samples_num, uint8_t *buf, size_t *dma_len_byt
     }
     return 0;
 }
-
-
-int adc_capture_deinit(int fd) {
-    if (ioctl(fd, AXI_ADC_DMA_DEINIT) != 0) {
-        printf("AXI_ADC_DMA_START failed: %s\n", strerror(errno));
-        return -1;
-    }
-    return 0;
-}
-

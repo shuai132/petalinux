@@ -139,7 +139,6 @@ static long axi_adc_dma_ioctl(struct file *file,unsigned int cmd, unsigned long 
                         dma_map_single(rx_dev->dev,axi_adc_dev[minor]->dsts[i],
                                        axi_adc_dev[minor]->dma_len_bytes,DMA_MEM_TO_DEV);
             }
-
             break;
         case AXI_ADC_DMA_START:
             /* Start the DMA transaction */
@@ -169,10 +168,10 @@ static long axi_adc_dma_ioctl(struct file *file,unsigned int cmd, unsigned long 
             }
             axi_adc_dev[minor]->rx_tmo =msecs_to_jiffies(AXI_ADC_CALLBACK_TIMEOUTMSEC); /* RX takes longer */
             dma_async_issue_pending(axi_adc_dev[minor]->rx_chan);
+            break;
+        case AXI_ADC_ADC_START:
             writel(axi_adc_dev[minor]->adc_sample_num,axi_adc_dev[minor]->adc_virtaddr+4);
             writel(1,axi_adc_dev[minor]->adc_virtaddr);
-            break;
-        case AXI_ADC_DMA_DEINIT:
             break;
         default:
             return -EOPNOTSUPP;
